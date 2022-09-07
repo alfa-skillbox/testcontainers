@@ -1,0 +1,14 @@
+{
+  "type": "string",
+  "properties": {
+    "foo": {
+      "type": "object"
+    },
+    "bar": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "foo"
+  ]
+}

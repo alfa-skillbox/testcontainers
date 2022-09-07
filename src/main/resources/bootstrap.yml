@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: alfa-skillbox-module-tests
+  profiles:
+    active: local

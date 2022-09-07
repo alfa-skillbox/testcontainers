@@ -1,0 +1,4 @@
+{
+  "json": "{\n  \"foo\": {\n    \"Sheldon\": \"Cooper\",\n    \"Leonard\": \"Hofstadter\"\n  },\n  \"bar\": [\n    1,\n    2,\n    3\n  ]\n}",
+  "valid": true
+}

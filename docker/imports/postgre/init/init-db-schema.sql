@@ -1,0 +1,25 @@
+CREATE SCHEMA IF NOT EXISTS module_tests_schema AUTHORIZATION postgre;
+
+GRANT ALL ON SCHEMA module_tests_schema TO postgre;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA module_tests_schema
+GRANT ALL ON TABLES TO postgre WITH GRANT OPTION;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA module_tests_schema
+GRANT SELECT, USAGE ON SEQUENCES TO postgre WITH GRANT OPTION;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA module_tests_schema
+GRANT EXECUTE ON FUNCTIONS TO postgre WITH GRANT OPTION;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA module_tests_schema
+GRANT USAGE ON TYPES TO postgre WITH GRANT OPTION;
+
+-- Table: users
+
+CREATE TABLE IF NOT EXISTS module_tests_schema.jsons (
+  id bigserial NOT NULL UNIQUE PRIMARY KEY,
+  json jsonb NOT NULL
+);
+
+ALTER TABLE module_tests_schema.jsons
+    OWNER to postgre;

@@ -1,0 +1,11 @@
+{
+  "foo": {
+    "Sheldon": "Cooper",
+    "Leonard": "Hofstadter"
+  },
+  "bar": [
+    1,
+    2,
+    3
+  ]
+}

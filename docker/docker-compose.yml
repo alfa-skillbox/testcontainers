@@ -1,0 +1,43 @@
+version: '3.7'
+services:
+    keycloak:
+        image: jboss/keycloak:16.1.1
+        container_name: keycloak-local
+        environment:
+            KEYCLOAK_USER: 'admin'
+            KEYCLOAK_PASSWORD: 'admin'
+            DB_VENDOR: 'h2'
+            SERVER_KEYSTORE_PASSWORD: 'qwerty'
+            KEYCLOAK_IMPORT: "/tmp/realm-config.json"
+        volumes:
+            - ./imports/keycloak:/tmp
+        ports:
+            - "8888:8080"
+
+    postgre:
+        image: 'postgres:11'
+        restart: always
+        networks:
+          - bd
+        environment:
+            POSTGRES_DB: alfa_skillbox_module_tests_db
+            POSTGRES_USER: postgre
+            POSTGRES_PASSWORD: postgre
+        volumes:
+            - './imports/postgre/init/init-db-schema.sql://docker-entrypoint-initdb.d/init-db-schema.sql'
+            - './data/postgre:/var/lib/postgresql/data'
+        ports:
+            - '5432:5432'
+    adminer:
+        image: adminer
+        restart: always
+        networks:
+            - bd
+        ports:
+            - 9090:8080
+
+volumes:
+    data.postgre:
+
+networks:
+    bd:

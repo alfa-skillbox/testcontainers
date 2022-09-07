@@ -1,0 +1,59 @@
+{
+  "realm": "alfa-skillbox",
+  "enabled": true,
+  "users": [
+    {
+      "username": "user",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "user"
+        }
+      ],
+      "realmRoles": [
+        "user"
+      ]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "user",
+        "description": "User privileges"
+      }
+    ]
+  },
+  "defaultRoles": [
+    "user"
+  ],
+  "clients": [
+    {
+      "clientId" : "modules-tests-client",
+      "surrogateAuthRequired" : false,
+      "enabled" : true,
+      "alwaysDisplayInConsole" : false,
+      "clientAuthenticatorType" : "client-secret",
+      "secret" : "kFdfYNqWFPtb9UALCXNc4yhsS2zrX0XV",
+      "redirectUris" : [ "*" ],
+      "webOrigins" : [ "*" ],
+      "notBefore" : 0,
+      "bearerOnly" : false,
+      "consentRequired" : false,
+      "standardFlowEnabled" : false,
+      "implicitFlowEnabled" : false,
+      "directAccessGrantsEnabled" : false,
+      "serviceAccountsEnabled" : true,
+      "publicClient" : false,
+      "frontchannelLogout" : false,
+      "protocol" : "openid-connect",
+      "attributes" : {
+        "access.token.lifespan" : "3600",
+        "use.jwks.string" : "false",
+        "use.jwks.url" : "true",
+        "client_credentials.use_refresh_token" : "false",
+        "use.refresh.tokens" : "false"
+      }
+    }
+  ]
+}

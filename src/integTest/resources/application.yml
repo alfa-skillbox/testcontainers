@@ -1,0 +1,28 @@
+keycloak.uri: 'http://localhost:${wiremock.server.port}'
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwkSetUri: '${keycloak.uri}/auth/realms/alfa-skillbox/protocol/openid-connect/certs'
+logging:
+  level:
+    org.springfaramework: DEBUG
+    org.springfaramework.orm.jpa.JpaTransactionManager: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.desriptor.sql.BasicBinder: TRACE
+
+feign:
+  client:
+    config:
+      rest-json-validation:
+        connectTimeout: 2000
+        readTimeout: 2000
+  clients:
+    rest-json-validation:
+      retryer:
+        period: 1000
+        maxPeriod: 1000
+      name: 'rest-json-validation'
+      url: 'http://localhost:${wiremock.server.port}'
+      path: 'json'

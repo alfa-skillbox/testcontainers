@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    name: "integtest_alfa_skillbox_module_tests"
+  jpa:
+    hibernate.ddl-auto: validate
+    show-sql: true
+    generate-ddl: false
+    properties:
+      hibernate.dialect: 'org.hibernate.dialect.PostgreSQL95Dialect'
+      hibernate.current_session_context_class: 'org.springframework.orm.hibernate5.SpringSessionContext'
+      hibernate.connection.characterEncoding: "UTF-8"
+      hibernate.connection.charSet: "UTF-8"
+      hibernate.temp.use_jdbc_metadata_defaults: "true"
+      hibernate.physical_naming_strategy: "org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl"
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwkSetUri: '${keycloak.uri}/auth/realms/alfa-skillbox/protocol/openid-connect/certs'
